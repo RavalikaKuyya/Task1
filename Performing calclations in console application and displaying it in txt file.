@@ -1,13 +1,18 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Program
+    class Class1
     {
         static void Main(string[] args)
-        { //use for the string operation choice
+        {
+            //use for the string operation choice
             int operation = 0;
             //stock the result of the operation
             double result = 0;
@@ -17,16 +22,14 @@ namespace ConsoleApp1
             string stringFirstNumber = Console.ReadLine();
             double firstNumber = Convert.ToDouble(stringFirstNumber);
 
-            //Ask user operation to use
-            Console.WriteLine("Enter the operation + (addition), - (soustraction), * (multiplication), / (division), ^ (exposant) or % (reste) :");
-            string stringOperation = Console.ReadLine();
-
             //Ask user second number
             Console.WriteLine("Type you second number :");
             string stringSecondNumber = Console.ReadLine();
             double secondNumber = Convert.ToDouble(stringSecondNumber);
 
-
+            //Ask user operation to use
+            Console.WriteLine("Enter the operation + (addition), - (soustraction), * (multiplication), / (division), ^ (exposant) or % (reste) :");
+            string stringOperation = Console.ReadLine();
 
             // Convert string choice to integral
             if (stringOperation == "+" || stringOperation == "addition")
@@ -81,23 +84,26 @@ namespace ConsoleApp1
                     result = firstNumber % secondNumber;
                     break;
             }
-            string path = @"C:\Users\Rajeshwar\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\Test.txt";
+            string path = @"C:\Users\21800630\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\d\data\test.txt";
 
             if (File.Exists(path))
             {
                 using (StreamWriter sq = File.CreateText(path))
                 {
-
+                   
                     sq.WriteLine(" " + result + ".");
 
                 }
             }
-            Process.Start(@"C:\Users\Rajeshwar\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\Test.txt");
+
+
+
+            Process.Start(@"C:\Users\21800630\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\d\data\test.txt");
+
+
+
 
             Console.ReadKey();
         }
     }
-
-
 }
-    
