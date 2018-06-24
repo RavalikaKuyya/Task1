@@ -1,0 +1,322 @@
+@model mvc2.Models.itemtable
+
+
+
+
+@{
+    /**/
+
+    ViewBag.Title = "Cafee";
+}
+
+
+<script>
+    function myFunction() {
+        alert('@ViewData["ItemName"].ToString()');
+    }
+</script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<span id="span1"></span>
+<span id="span2"></span>
+
+
+
+<script type="text/javascript">
+    debugger;
+    function chkind() {
+        var dropdown1 = document.getElementById('ItemName');
+        var textbox = document.getElementById('Price');
+        var a = $("#ItemName Option:Selected").text();
+        var b = $("#ItemType Option:Selected").text();
+        if (a == "Flat White" && b == "Small") {
+            textbox.value = "5";
+        }
+        else if (a == "Flat White" && b == "Medium") {
+            textbox.value = "6";
+        }
+        else if (a == "Flat White" && b == "Large") {
+            textbox.value = "10";
+        }
+        else if (a == "Tea" && b == "Small") {
+            textbox.value = "6";
+        }
+        else if (a == "Tea" && b == "Medium") {
+            textbox.value = "8";
+        }
+        else if (a == "Tea" && b == "Large") {
+            textbox.value = "16";
+        }
+        else if (a == "Fluffy with marshmallows" && b == "Small") {
+            textbox.value = "4";
+        }
+        else if (a == "Fluffy with marshmallows" && b == "Medium") {
+            textbox.value = "10";
+        }
+        else if (a == "Fluffy with marshmallows" && b == "Large") {
+            textbox.value = "16";
+        }
+        else if (a == "Cappuccino" && b == "Small") {
+            textbox.value = "5";
+        }
+        else if (a == "Cappuccino" && b == "Medium") {
+            textbox.value = "15";
+        }
+        else if (a == "Cappuccino" && b == "Large") {
+            textbox.value = "25";
+        }
+        else if (a == "Latte" && b == "Small") {
+            textbox.value = "16";
+        }
+        else if (a == "Latte" && b == "Medium") {
+            textbox.value = "20";
+        }
+        else if (a == "Latte" && b == "Large") {
+            textbox.value = "24";
+        }
+        else if (a == "Mochaccino" && b == "Small") {
+            textbox.value = "8";
+        }
+        else if (a == "Mochaccino" && b == "Medium") {
+            textbox.value = "14";
+        }
+        else if (a == "Mochaccino" && b == "Large") {
+            textbox.value = "19";
+        }
+        else if (a == "Hot Chocolate" && b == "Small") {
+            textbox.value = "5";
+        }
+        else if (a == "Hot Chocolate" && b == "Medium") {
+            textbox.value = "10";
+        }
+        else if (a == "Hot Chocolate" && b == "Large") {
+            textbox.value = "15";
+        }
+        else if (a == "Expresso" && b == "Small") {
+            textbox.value = "14";
+        }
+        else if (a == "Expresso" && b == "Medium") {
+            textbox.value = "18";
+        }
+        else if (a == "Expresso" && b == "Large") {
+            textbox.value = "28";
+        }
+        else if (a == "Long black" && b == "Small") {
+            textbox.value = "10";
+        }
+
+        else if (a == "Long black" && b == "Medium") {
+            textbox.value = "15";
+        }
+        else if (a == "Long black" && b == "Large") {
+            textbox.value = "20";
+        }
+        else if (a == "Chai latte" && b == "Small") {
+            textbox.value = "8";
+        }
+        else if (a == "Chai latte" && b == "Medium") {
+            textbox.value = "16";
+        }
+        else if (a == "Chai latte" && b == "Large") {
+            textbox.value = "24";
+        }
+        else if (a == "Lemon,ginger & honey" && b == "Small") {
+            textbox.value = "15";
+        } else if (a == "Lemon,ginger & honey" && b == "Medium") {
+            textbox.value = "18";
+        } else if (a == "Lemon,ginger & honey" && b == "Large") {
+            textbox.value = "25";
+        }
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        debugger;
+        $("#GivenAmt").keyup(function () {
+            var cal = document.getElementById('Price').value;
+            var cal1 = document.getElementById('GivenAmt').value;
+            if (Price.value <= GivenAmt.value) {
+                Change.value = GivenAmt.value - Price.value;
+
+            }
+            else if (Price.value > GivenAmt.value) {
+                Change.value = GivenAmt.value - Price.value;
+                alert("Please enter bigger value");
+            }
+        });
+
+
+
+    });
+</script>
+
+
+
+
+<h2>Cafee</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    //foreach(var item in Model.id)
+    //{
+
+    //}
+
+
+
+    <div class="form-horizontal">
+        <h4>itemtable</h4>
+        <hr />
+        @Html.ValidationSummary(true, "Please correct the errors");
+        <div class="form-group">
+            <label id="CName" class="control-label col-md-2">Customer Name</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ItemName", ViewData["ItemName"] as SelectList, "Select", new { @class = "form-control", onchange = "chkind();" })
+                @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="ItemName" class="control-label col-md-2 ">Item Type</label>
+            <div class="col-md-10">
+                @Html.DropDownList("ItemType", new List<SelectListItem>
+{
+                   new SelectListItem{ Text="Select" },
+
+new SelectListItem{ Text="Small" },
+new SelectListItem{ Text="Medium" },
+new SelectListItem{ Text="Large"},
+}, new { @class = "form-control", onchange = "chkind();" })
+                @Html.ValidationMessageFor(model => model.ItemType, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.Price, new { disabled = "disabled", @readonly = "readonly", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GivenAmt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GivenAmt, new { htmlAttributes = new { @class = "form-control", onchange = "chkamt();" } })
+                @Html.ValidationMessageFor(model => model.GivenAmt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Change, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Change, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Change, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" id="btnsubmit" class="btn btn-default" onclick="myFunction()" />
+
+            </div>
+        </div>
+    </div>
+
+}
+<table class="table">
+
+    @*<button id="btnsubmit" formmethod="post" value="Create" class="btn btn-default" onclick="getUserCredentials();" data-target="#s" data-toggle="modal">  View Recent Customer History</button>*@
+
+    <tr>
+
+
+
+        @foreach (var item in ViewBag.Display)
+        {
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="modal" id="s" data-backdrop="static" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">
+                                            &times;
+
+                                        </button>
+
+
+
+
+
+                                        <h1 style="color:red"> Details of the Customer</h1>
+
+                                        <br />
+                                        <b class="radio">   Customer Name   :     @item.CName</b> &nbsp;&nbsp;
+                                        <br />
+                                        <br />
+
+
+                                        <b class="radio">   Item Name      :        @item.ItemName</b> &nbsp;&nbsp;
+                                        <br />
+                                        <br />
+
+                                        <b class="radio">   Item Type      :        @item.ItemType</b> &nbsp;&nbsp;
+                                        <br />
+                                        <br />
+
+                                        <b class="radio">   Price          :            @item.Price</b> &nbsp;&nbsp;
+                                        <br />
+                                        <br />
+
+                                        <b class="radio">   Given Amount    :       @item.GivenAmt</b> &nbsp;&nbsp;
+                                        <br />
+                                        <br />
+
+                                        <b class="radio">   Change          :            @item.Change</b> &nbsp;&nbsp;
+                                        <br />
+                                        <br />
+
+
+
+
+
+                                        <div class="modal-footer">
+
+                                            <button class="btn btn-primary " data-dismiss="modal">Close</button>
+
+
+                                        </div>
+
+                                   </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+
+</table>
