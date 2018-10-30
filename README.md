@@ -1,2 +1,3 @@
-# Task1
-inserting data in database , adding scripts, designing the page.
+Set of projects which includes Asp.net, MVC, AJAX and JavaScript.
+
+This project involves Inserting data in the database, working on Ajax, performing calculation in JavaScript and implementing MVC Search using JavaScript.
